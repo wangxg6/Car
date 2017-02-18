@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .img{
+        position: relative;
+        width: 100%;
+        height:auto;
+    }
+    .btm{
+        position: absolute;
+        left:48%;
+        bottom: 4%;
+        width: 4%;
+    }
+</style>
+<body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<div>
+    <div style="position: relative">
+        <img class="img" id="img1" src="img/BuyCar/1.jpg"/>
+        <img class="btm" id="btm1" src="img/BuyCar/13d.png">
+    </div>
+    <img class="img" id="img11" src="img/BuyCar/11.jpg"/>
+    <div style="position: relative">
+        <img id="img2" class="img" src="img/BuyCar/2.jpg"/>
+        <img class="btm" id="btm2" src="img/BuyCar/24d.png">
+    </div>
+    <img class="img" id="img22" src="img/BuyCar/22.jpg"/>
+    <div style="position: relative">
+        <img class="img" id="img3" src="img/BuyCar/3.jpg"/>
+        <img class="btm" id="btm3" src="img/BuyCar/13d.png">
+    </div>
+    <img class="img" id="img33" src="img/BuyCar/33.jpg"/>
+    <div style="position: relative">
+        <img class="img" id="img4" src="img/BuyCar/4.jpg"/>
+        <img class="btm" id="btm4" src="img/BuyCar/24d.png">
+    </div>
+    <img class="img" id="img44" src="img/BuyCar/44.jpg"/>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#img11").hide();
+        $("#img22").hide();
+        $("#img33").hide();
+        $("#img44").hide();
+        $("#img1").click(function(){
+            $("#img11").slideToggle(800,function(){
+                if($("#btm1").attr("src")=="img/BuyCar/13d.png"){
+                    $("#btm1").attr("src","img/BuyCar/13u.png");
+                }
+                else{
+                    $("#btm1").attr("src","img/BuyCar/13d.png");
+                }
+            });
+        });
+        $("#img2").click(function(){
+            $("#img22").slideToggle(800,function(){
+                if($("#btm2").attr("src")=="img/BuyCar/24d.png"){
+                    $("#btm2").attr("src","img/BuyCar/24u.png");
+                }
+                else{
+                    $("#btm2").attr("src","img/BuyCar/24d.png");
+                }
+            });
+        });
+        $("#img3").click(function(){
+            $("#img33").slideToggle(800,function(){
+                if($("#btm3").attr("src")=="img/BuyCar/13d.png"){
+                    $("#btm3").attr("src","img/BuyCar/13u.png");
+                }
+                else{
+                    $("#btm3").attr("src","img/BuyCar/13d.png");
+                }
+            });
+        });
+        $("#img4").click(function(){
+            $("#img44").slideToggle(800,function(){
+                if($("#btm4").attr("src")=="img/BuyCar/24d.png"){
+                    $("#btm4").attr("src","img/BuyCar/24u.png");
+                }
+                else{
+                    $("#btm4").attr("src","img/BuyCar/24d.png");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .head {
+            position: relative;
+            width: 100%;
+            height: 45px;
+            background-image: url("img/hand/fourth/ZHX/CHLGG/返回底图.png");
+            background-position: 50%;
+            background-size: cover;
+            display: flex;
+        }
+
+        .backto {
+            display: block;
+            padding: 10px 20px;
+            padding-right: 0;
+            width: 70px;
+        }
+
+        .backtop {
+            display: block;
+            padding: 10px 20px;
+            width: 70px;
+        }
+
+        .main {
+            position: relative;
+            width: 100%;
+            background-image: url('img/hand/fourth/ZHX/CHLGG/页面底.jpg');
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+
+        .module2 img {
+            width: 100%;
+        }
+
+        .banner{
+            width: 100%;
+            height:auto;
+        }
+        .backtotop {
+            width: 10%;
+            position: fixed;
+            right: 2%;
+            bottom: 2%;
+            z-index: 110;
+        }
+        .title{
+            width: 80%;
+            height:auto;
+            margin-left:10%;
+        }
+        .img{
+            width: 90%;
+            height:auto;
+            margin-left:5%;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+    <img src="img/hand/fourth/backtopbtn.png" alt="" class="backtotop">
+    <div class="head" id="head">
+        <a href="CarSecond.html#ZX&third&基本功能"><img class="backto" src="img/hand/fourth/ZHX/CHLGG/返回.png"></a>
+        <a href="CarIndex.html"><img src="img/hand/fourth/ZHX/CHLGG/返回主页.png" alt="" class="backtop"></a>
+    </div>
+    <div class="main">
+        <img src="img/hand/fourth/ZHX/CHLGG/banner.jpg" class="banner"/>
+        <a href="#尺寸"><img src="img/hand/fourth/ZHX/CHLGG/尺寸.png" class="title"/></a>
+        <a href="#重量"><img src="img/hand/fourth/ZHX/CHLGG/重量.png" class="title"/></a>
+        <a href="#发动机及燃料"><img src="img/hand/fourth/ZHX/CHLGG/发动机及燃料.png" class="title"/></a>
+        <img id="尺寸" src="img/hand/fourth/ZHX/CHLGG/尺寸正文.png" class="img"/>
+        <img id="重量" src="img/hand/fourth/ZHX/CHLGG/重量征文.png" class="img"/>
+        <img id="发动机及燃料" src="img/hand/fourth/ZHX/CHLGG/发动机正文.png" class="img"/>
+        <br/><br/><br/><br/>
+    </div>
+</div>
+</body>
+<script>
+    document.getElementsByClassName('backtotop')[0].addEventListener('click', function() {
+        window.location.href = "#head";
+    })
+</script>
+</html>

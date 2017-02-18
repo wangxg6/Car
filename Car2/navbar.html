@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .body {
+            position: relative;
+            color: white;
+            text-align: right;
+        }
+
+        .background {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+        }
+
+        .texttitle {
+            padding-top: 6%;
+            padding-right: 5%;
+        }
+
+        .texttext {
+            padding-top: 8%;
+            padding-right: 13%;
+        }
+
+        .title {
+            padding-top: 5%;
+            padding-bottom: 7%;
+            padding-right: 5%;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+    <img src="" alt="" class="background">
+    <div class="title"></div>
+</div>
+</body>
+<script>
+    window.onload = function() {
+        var targeturl = '';
+        var cartype = {'ZX': '致炫', 'LL': '雷凌', 'YZ': '逸致', 'KMR': '凯美瑞', 'HLD': '汉兰达'}
+        var hh = document.getElementsByClassName('background')[0].clientWidth;
+        console.log(hh)
+        var book = [{'text': '基本功能篇', 'type': 'title'},{'text': '仪表盘', 'type': 'detail', 'lei': '基本功能'},{'text': '钥匙及车门', 'type': 'detail', 'lei': '基本功能'},{'text': '方向盘及后视镜', 'type': 'detail', 'lei': '基本功能'},{'text': '座椅及车窗', 'type': 'detail', 'lei': '基本功能'},{'text': '音响系统', 'type': 'detail', 'lei': '基本功能'},{'text': '空调、照明及储物', 'type': 'detail', 'lei': '基本功能'},{'text': '车辆规格', 'type': 'detail', 'lei': '基本功能'},{'text': '车辆驾驶篇', 'type': 'title'},{'text': '驾驶前准备', 'type': 'detail', 'lei': '车辆驾驶'},{'text': '驾驶要领', 'type': 'detail', 'lei': '车辆驾驶'},{'text': '车灯雨刮', 'type': 'detail', 'lei': '车辆驾驶'},{'text': '加注燃油', 'type': 'detail', 'lei': '车辆驾驶'},{'text': '辅助系统', 'type': 'detail', 'lei': '车辆驾驶'},{'text': '清洁保养篇', 'type': 'title'},{'text': '清洁内饰', 'type': 'detail', 'lei': '清洁保养'},{'text': '清洁外饰', 'type': 'detail', 'lei': '清洁保养'},{'text': '保养须知', 'type': 'detail', 'lei': '清洁保养'},{'text': '驾驶应急篇', 'type': 'title'},{'text': '安全装置', 'type': 'detail', 'lei': '驾驶应急'},{'text': '应急信息', 'type': 'detail', 'lei': '驾驶应急'},{'text': '紧急措施', 'type': 'detail', 'lei': '驾驶应急'}];
+        var hasharr = window.location.hash.substring(1).split('&');
+		var type = decodeURI(hasharr[0]);//ZX
+        var hreftype = decodeURI(hasharr[1]);//基本功能
+        document.getElementsByClassName('title')[0].style.fontSize = parseInt(hh) / 100 * 6 + 'px';
+        document.getElementsByClassName('title')[0].style.height = parseInt(hh) / 100 * 6 + 'px';
+        if(hreftype == 'm1') {
+            document.getElementsByClassName('title')[0].style.color = 'white';
+        } else {
+            document.getElementsByClassName('title')[0].style.color = 'black'
+        }
+        if(hreftype == 'm1') {
+            document.getElementsByClassName('background')[0].src = 'img/hand/first/navbar1.jpg';
+        } else {
+            document.getElementsByClassName('background')[0].src = 'img/hand/first/navbar2.jpg';
+        }
+        document.getElementsByClassName('title')[0].innerHTML = cartype[type];
+        for(var i = 0;i < book.length;i ++) {
+            (function(type, index) {
+                var temp = document.createElement('div');
+                if(book[index].type == 'title') {
+                    temp.className = 'texttitle';
+                    temp.style.height = parseInt(hh) / 100 * 6 + 'px';
+                    temp.style.fontSize = parseInt(hh) / 100 * 6 + 'px';
+                } else {
+                    temp.className = 'texttext';
+                    temp.style.height = parseInt(hh) / 100 * 5 + 'px';
+                    temp.style.fontSize = parseInt(hh) / 100 * 5 + 'px';
+                }
+                temp.innerHTML = book[index].text;
+                if(hreftype == 'm1') {
+                    temp.style.color = 'white';
+                } else {
+                    temp.style.color = 'black'
+                }
+                temp.addEventListener('click', function() {
+                    if(book[index].type == 'title') {
+                        targeturl = 'CarSecond.html#' + type + '&second';
+                    } else {
+                        targeturl = 'CarFourth.html#' + type + '&' + book[index].lei + '&' + book[index].text;
+                    }
+                    parent.location.href = targeturl;
+                })
+                document.getElementsByClassName('body')[0].appendChild(temp);
+            })(type, i)
+        }
+    }
+</script>
+</html>

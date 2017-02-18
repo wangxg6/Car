@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交车首页</title>
+</head>
+<script src="js/jquery-2.1.4.min.js"></script>
+<style>
+    .body{
+        position: absolute;
+        background-image: url("img/GetCar/长图.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height:3500px;
+        overflow: hidden;
+    }
+    img{
+        overflow: hidden;
+    }
+    #img1{
+        position: absolute;
+        top: 1%;
+        left: 4%;
+        width: 55%;
+    }
+    #img2 {
+        position: absolute;
+        top: 4%;
+        left: 100%;
+        width: 35%;
+    }
+    #img3 {
+        position: absolute;
+        top: 20%;
+        left: -50%;
+        width: 45%;
+    }
+    #img4 {
+        position: absolute;
+        top: 35%;
+        left: 100%;
+        width: 26%;
+    }
+    #text2 {
+        position: absolute;
+        top: 13%;
+        left: 100%;
+        width: 33%;
+    }
+    #text3 {
+        position: absolute;
+        top: 29%;
+        left: -50%;
+        width: 37%;
+    }
+    #text4 {
+        position: absolute;
+        top: 44%;
+        left: 100%;
+        width: 33%;
+    }
+    #img5 {
+        position: absolute;
+        top: 55%;
+        left: -50%;
+        width: 35%;
+    }
+    #img6 {
+        position: absolute;
+        top: 70%;
+        right: -50%;
+        width: 42%;
+    }
+    #img7 {
+        position: absolute;
+        top: 87%;
+        left: -50%;
+        width: 35%;
+    }
+    #text5 {
+        position: absolute;
+        top: 64.5%;
+        left: -50%;
+        width: 32%;
+    }
+    #text6 {
+        position: absolute;
+        top: 79%;
+        left: 100%;
+        width: 34%;
+    }
+    #text7 {
+        position: absolute;
+        top: 95%;
+        left: -50%;
+        width: 33%;
+    }
+    #img8{
+        position: absolute;
+        top: 8%;
+        left: 14%;
+        width: 13%;
+    }
+    #img9 {
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        width: 9%;
+    }
+</style>
+<body>
+<div class="body">
+    <img id="img1" src="img/GetCar/1.png">
+    <a href="GetCarSecond.html#预约交车"><img id="img2" src="img/GetCar/2.png"></a>
+    <a href="GetCarSecond.html#到店验车"><img id="img3" src="img/GetCar/3.png"></a>
+    <a href="GetCarSecond.html#点交资料"><img id="img4" src="img/GetCar/4.png"></a>
+    <a href="GetCarSecond.html#预约交车"><img id="text2" src="img/GetCar/text2.png"></a>
+    <a href="GetCarSecond.html#到店验车"><img id="text3" src="img/GetCar/text3.png"></a>
+    <a href="GetCarSecond.html#点交资料"><img id="text4" src="img/GetCar/text4.png"></a>
+    <a href="GetCarSecond.html#操作讲解"><img id="img5" src="img/GetCar/5.png"></a>
+    <a href="GetCarSecond.html#参观售后"><img id="img6" src="img/GetCar/6.png"></a>
+    <a href="GetCarSecond.html#交车仪式"><img id="img7" src="img/GetCar/7.png"></a>
+    <a href="GetCarSecond.html#操作讲解"><img id="text5" src="img/GetCar/text5.png"></a>
+    <a href="GetCarSecond.html#参观售后"><img id="text6" src="img/GetCar/text6.png"></a>
+    <a href="GetCarSecond.html#交车仪式"><img id="text7" src="img/GetCar/text7.png"></a>
+    <img id="img8" src="img/GetCar/树.png">
+    <img id="img9" src="img/GetCar/右灯.png">
+</div>
+</body>
+<script>
+    $(document).ready(function() {
+        $('#img2').animate({"left": "57%"}, 1000);
+        $('#img3').animate({"left": "4%"}, 1000);
+        $('#img4').animate({"left": "70%"}, 1000);
+        $('#img5').animate({"left": "3%"}, 1000);
+        $('#img6').animate({"right": "0%"}, 1000);
+        $('#img7').animate({"left": "1%"}, 1000, function () {
+            $('#text2').animate({"left": "62%"}, 1000);
+            $('#text3').animate({"left": "4%"}, 1000);
+            $('#text4').animate({"left": "65%"}, 1000);
+            $('#text5').animate({"left": "3%"}, 1000);
+            $('#text6').animate({"left": "61%"}, 1000);
+            $('#text7').animate({"left": "2%"}, 1000);
+        });
+    });
+</script>
+</html>

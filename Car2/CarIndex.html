@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width"/>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	.head{
+		position: relative;
+		width: 100%;
+		height: 50px;
+		background-image: url("img/hand/first/顶.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.button{
+		position: absolute;
+		right:10px;
+		top:13px;
+		background-position: 50%;
+		width:6%;
+		height:auto;
+	}
+	.body{
+		position:relative;
+		width: 100%;
+		height:650px;
+		overflow: hidden;
+	}
+	.car{
+		width:100%;
+		overflow: hidden;
+	}
+	.carm{
+		position: absolute;
+		width: 100%;
+		top:40%;
+		z-index:20;
+		overflow: hidden;
+	}
+	.carl{
+		position: absolute;
+		width: 100%;
+		top:40%;
+		z-index:20;
+		overflow: hidden;
+		left:-100%
+	}
+	.carr{
+		position: absolute;
+		width: 100%;
+		top:40%;
+		z-index:20;
+		overflow: hidden;
+		left:100%
+	}
+	.start{
+		position: absolute;
+		width:40%;
+		left:30%;
+		top:67%;
+		z-index: 100;
+	}
+	.start img{
+		width: 100%;
+		height:100%;
+	}
+	.light{
+		position: absolute;
+		width:94%;
+		left:2%;
+		top:51%;
+		z-index:50;
+	}
+	.quan{
+		position: absolute;
+		width:90%;
+		height:140px;
+		left:5%;
+		top:370px;
+		z-index:10;
+	}
+	.bottom{
+		position: relative;
+		width: 100%;
+		top:75%;
+		height:11%;
+		background-image: url("img/hand/first/线框.png");
+		background-position: 50%;
+		background-size: cover;
+		z-index: 11;
+	}
+	p{
+		position: absolute;
+		font-size: 14px;
+		color:white;
+		top: 95%;
+		width:100%;
+		letter-spacing:2.5px;
+		z-index: 11;
+	}
+	.left{
+		position: absolute;
+		top: 52%;
+		left: 3%;
+		width: 5%;
+		z-index: 222;
+	}
+	.right{
+		position: absolute;
+		top: 51%;
+		right: 2%;
+		width: 5%;
+		z-index: 222;
+	}
+	.name{
+		width: 100%;
+		overflow: hidden;
+	}
+	.name0{
+		position: absolute;
+		top:16%;
+		left:-22%;
+		width: 26%;
+	}
+	.name1{
+		  position: absolute;
+		  top:16%;
+		  left:9%;
+		  width: 26%;
+	  }
+	.name2{
+		position: absolute;
+		top:16%;
+		left:37%;
+		width: 26%;
+	}
+	.name3{
+		position: absolute;
+		top:16%;
+		left:67%;
+		width: 26%;
+	}
+	.name4 {
+		position: absolute;
+		top: 16%;
+		left: 100%;
+		width: 26%;
+	}
+	.line{
+		position: absolute;
+		top:60px;
+		left:40%;
+		width: 20%;
+	}
+	.mainbody {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.nav {
+		position: absolute;
+    top: 0;
+    right: -80%;
+    width: 80%;
+    height: 100%;
+    -webkit-overflow-scrolling:touch;
+    overflow: scroll;
+	}
+
+	#navbar {
+    width: 100%;
+    height: 100%;
+	}
+
+	.main {
+		position: relative;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	.backgroundm {
+		height: 100%;
+		width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+	}
+
+	.backgroundl {
+		height: 100%;
+		width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+	}
+
+	.backgroundr {
+		height: 100%;
+		width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+	}
+
+	.guobg {
+		width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+	}
+
+	.hand {
+		position: absolute;
+    width: 50%;
+    top: 55%;
+	}
+
+	.tipstext {
+		position: absolute;
+		width: 60%;
+		top: 40%;
+		left: 20%;
+	}
+
+	.tips {
+		position: absolute;
+        top: 0;
+        z-index: 555;
+        width: 100%;
+        height: 100%;
+		background-image: url("img/hand/first/黑底2.png");
+	}
+	.tipstext1{
+		position: absolute;
+		width: 60%;
+		top: 1%;
+		left: 39%;
+		display: none;
+	}
+	.tipstext2{
+		position: absolute;
+		width: 60%;
+		top: 64%;
+		left: 15%;
+		display: none;
+	}
+
+	/*@keyframes handmove {
+		from {
+			left: 0;
+		}
+		to {
+			right: 0;
+		}
+	}
+
+	.hand {
+		animation: handmove 1s infinite linear;
+		-moz-animation: handmove 1s infinite linear;
+		-webkit-animation: handmove 1s infinite linear;
+		-o-animation: handmove 1s infinite linear;
+	}*/
+</style>
+<script>
+	$(document).ready(function(){
+		var timer=setInterval(function(){
+			$('.hand').animate({"left": "50%"}, 1000);
+			$('.hand').animate({"left": "0%"}, 1000);
+		},0);
+		// document.getElementsByClassName('hand')[0].style.animation = 'handmove 1s infinite linear';
+		// document.getElementsByClassName('hand')[0].style.WebkitAnimation = 'handmove 1s infinite linear';
+		var isout = false;
+		var nowtype = ['KMR', 'HLD', 'YZ', 'ZX', 'LL'];
+		var CarArr = {
+			"img":["img/hand/first/凯车.png","img/hand/first/汉车.png","img/hand/first/逸车.png","img/hand/first/致炫车.png","img/hand/first/雷车.png"],
+			"name1":["img/hand/first/凯.png","img/hand/first/汉.png","img/hand/first/逸.png","img/hand/first/致炫.png","img/hand/first/雷.png"],
+			"name2":["img/hand/first/凯2.png","img/hand/first/汉2.png","img/hand/first/逸2.png","img/hand/first/致炫2.png","img/hand/first/雷2.png"],
+			"href":["CarSecond.html#KMR&second","CarSecond.html#HLD&second","CarSecond.html#YZ&second","CarSecond.html#ZX&second","CarSecond.html#LL&second"],
+			"bg":["img/hand/first/底4.jpg","img/hand/first/底5.jpg","img/hand/first/底1.jpg","img/hand/first/底2.jpg","img/hand/first/底3.jpg"]
+		};
+		var bo=false;
+		var index = 0;
+		$(".start").click(function () {
+			window.location.href=CarArr["href"][index];
+		});
+		$(".name2").click(function () {
+			window.location.href=CarArr["href"][index];
+		});
+		$(".button").click(function(event) {
+			if(!isout) {
+				$('#navbar').attr("src", "navbar.html#" + nowtype[index] + '&m1');
+				$('.main').animate({"left": "-80%"}, 1000);
+				$('.nav').animate({"right": "0"}, 1000);
+				$('.main').click(function() {
+					$('.main').animate({"left": "0"}, 1000);
+					$('.nav').animate({"right": "-80%"}, 1000);
+				})
+				isout = true;
+			} else {
+				$('.main').animate({"left": "0"}, 1000);
+				$('.nav').animate({"right": "-80%"}, 1000);
+				$('.main').unbind();
+				isout = false;
+			}
+			event.stopPropagation();
+		})
+		var right = function() {
+			bo=true;
+			index = index == 0 ? 4 : index - 1;
+			var img = new Image();
+			img.onload = function() {
+				this.className = 'backgroundl';
+				var temp = document.createElement('img');
+				temp.className = 'carl';
+				temp.src = CarArr["img"][index];
+				$('.car').append(temp);
+				$('.body').append(this);
+				$('.carl').animate({"left": 0 + "%"}, 1000, function () {
+					$('.carl').removeClass('carl').addClass('carm');
+				});
+				$('.backgroundl').animate({"left": 0 + "%"}, 1000, function () {
+					$('.backgroundl').removeClass('backgroundl').addClass('backgroundm');
+				});
+				$('.carm').animate({left: '+100%'}, 1000, function () {
+					bo=false;
+					this.remove();
+				});
+				$('.backgroundm').animate({left: '+100%'}, 1000, function () {
+					bo=false;
+					this.remove();
+				});
+				$(".start").click(function () {
+					window.location.href=CarArr["href"][index];
+				});
+				//~~~~~~~~~~~~~~~~~~~
+				var temp1 = document.createElement('img');
+				temp1.className = 'name0';
+				var indextemp = index - 1;
+				if (indextemp == -1)
+					indextemp = 4;
+				var indexgg = index + 1;
+				if (indexgg == 5)
+					indexgg = 0;
+				temp1.src = CarArr["name2"][indextemp];
+				document.getElementsByClassName('name2')[0].src = CarArr["name2"][indexgg];
+				$('.name').append(temp1);
+				$('.name3').animate({left: '100%'}, 1000, function () {
+					this.remove();
+				});
+				$('.name2').animate({left: '67%'}, 1000, function () {
+					$('.name2').removeClass('name2').addClass('name3');
+				});
+				$('.name1').animate({left: '37%'}, 1000, function () {
+					document.getElementsByClassName('name1')[0].src = CarArr["name1"][index];
+					$('.name1').removeClass('name1').addClass('name2');
+					$(".name2").click(function () {
+						window.location.href=CarArr["href"][index];
+					});
+				});
+				$('.name0').animate({"left": '9%'}, 1000, function () {
+					$('.name0').removeClass('name0').addClass('name1');
+				});
+			}
+			img.src = CarArr["bg"][index];
+		};
+		var left=function(){
+			bo=true;
+			index = index == 4 ? 0 : index + 1;
+			var img = new Image();
+      img.onload=function(){
+				this.className = 'backgroundr';
+				var temp = document.createElement('img');
+				temp.className = 'carr';
+				temp.src = CarArr["img"][index];
+				$('.car').append(temp);
+				$('.body').append(this);
+				$('.carm').animate({left: '-100%'}, 1000, function() {
+					bo=false
+					this.remove();
+				});
+				$('.backgroundm').animate({left: '-100%'}, 1000, function() {
+					bo=false
+					this.remove();
+				});
+				$('.carr').animate({"left": "0%"}, 1000, function() {
+					$('.carr').removeClass('carr').addClass('carm');
+				});
+				$('.backgroundr').animate({"left": "0%"}, 1000, function() {
+					$('.backgroundr').removeClass('backgroundr').addClass('backgroundm');
+				});
+				$(".start").click(function () {
+					window.location.href=CarArr["href"][index];
+				});
+				//~~~~~~~~~~~~~~~~~~~
+				var temp1 = document.createElement('img');
+				temp1.className = 'name4';
+				var indextemp = index + 1;
+				if (indextemp == 5)
+					indextemp = 0;
+				var indexgg = index - 1;
+				if (indexgg == -1)
+					indexgg = 4;
+				temp1.src = CarArr["name2"][indextemp];
+				$('.name').append(temp1);
+				document.getElementsByClassName('name2')[0].src = CarArr["name2"][indexgg];
+				$('.name1').animate({left: '-22%'}, 1000, function () {
+					this.remove();
+				});
+				$('.name2').animate({left: '9%'}, 1000, function () {
+					$('.name2').removeClass('name2').addClass('name1');
+				});
+				$('.name3').animate({left: '37%'}, 1000, function () {
+					document.getElementsByClassName('name3')[0].src = CarArr["name1"][index];
+					$('.name3').removeClass('name3').addClass('name2');
+					$(".name2").click(function () {
+						window.location.href=CarArr["href"][index];
+					});
+				});
+				$('.name4').animate({left: '67%'}, 1000, function () {
+					$('.name4').removeClass('name4').addClass('name3');
+				});
+      }; //它在图像完全载入到内存之后调用。
+      img.onerror=function(){
+      };
+      img.src = CarArr["bg"][index];
+		};
+		$('.left').click(function() {
+			if(bo==false)
+				left();
+		});
+		$('.right').click(function() {
+			if(bo==false)
+				right();
+		});
+		$(".body").on("swipeleft",function(){
+			if(bo==false)
+				left();
+		});
+		$(".body").on("swiperight",function(){
+			if(bo==false)
+				right();
+		});
+		var hash = location.hash;
+		if(hash){
+			$(".tips").hide();
+		}
+		else {
+			$(".tips").on('touchstart', function () {
+				$(".tipstext").hide();
+				$(".hand").hide();
+				$(".tipstext2").show();
+				$(".tips").on('touchstart', function () {
+					$(".tipstext2").hide();
+					$(".tipstext1").show();
+					$(".tips").on('touchstart', function () {
+						$(".tips").hide();
+					});
+				});
+			});
+		}
+	});
+
+</script>
+<body>
+	<div class="mainbody">
+		<div class="main">
+			<div class="head">
+				<img class="button" src="img/hand/first/按钮.png"/>
+			</div>
+			<div class="body">
+				<img src="img/hand/first/底4.jpg" alt="" class="backgroundm">
+				<div class="car">
+					<img src="img/hand/first/凯车.png" class="carm" ></>
+				</div>
+				<!--<img class="light" src="img/hand/first/光.png">-->
+				<!--<img class="quan" src="img/hand/first/圈.png">-->
+				<img class="start" src="img/hand/first/开始.png" >
+				<img class="left" src="img/hand/first/左.png"/>
+				<img class="right" src="img/hand/first/右.png"/>
+				<div class="bottom">
+					<div class="name">
+						<img src="img/hand/first/雷2.png" class="name1"/>
+						<img src="img/hand/first/凯.png" class="name2"/>
+						<img src="img/hand/first/汉2.png" class="name3"/>
+					</div>
+					<img src="img/hand/first/红线.png" class="line" />
+				</div>
+				<img src="img/hand/first/bgbg.png" alt="" class="guobg">
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="nav">
+			<iframe src="" frameborder="0" id="navbar"></iframe>
+		</div>
+		<div class="tips">
+			<img src="img/hand/first/tipstext.png" alt="" class="tipstext">
+			<img src="img/hand/first/hand.png" alt="" class="hand">
+			<img src="img/hand/first/一级弹窗提示.png" alt="" class="tipstext1">
+			<img src="img/hand/first/一级弹窗提示2.png" alt="" class="tipstext2">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width"/>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		.head {
+			position: relative;
+    	width: 100%;
+		}
+
+		.backbg {
+			width: 100%;
+    	display: block;
+		}
+
+		.backtop {
+			width: 10%;
+	    position: absolute;
+	    right: 2%;
+	    top: 0;
+	    padding: 0;
+		}
+
+		.main {
+			position: relative;
+			background-image: url('img/salepoint/second/ZX/底图.png');
+			width: 100%;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.object {
+			position: relative;
+    	width: 100%;
+    	margin-top: 5%;
+		}
+
+		.option {
+			width: 100%;
+		}
+
+		.jiantou {
+			width: 7%;
+	    position: absolute;
+	    top: 32%;
+	    right: 34%;
+		}
+
+		.title {
+			width: 90%;
+	    display: block;
+	    padding-top: 10%;
+	    margin: 0 auto 20%;
+		}
+
+		.mainbody {
+	    width: 100%;
+		}
+
+		.background {
+			width: 100%;
+    	display: block;
+		}
+
+		.bottomtext {
+			width: 70%;
+	    margin: 50% auto 0;
+	    display: block;
+	    padding-bottom: 5%;
+		}
+
+		.detail {
+			width: 100%;
+			display: none;
+		}
+
+		.rel {
+			position: relative;
+		}
+
+		.closebtn {
+			display: block;
+	    position: absolute;
+	    bottom: 10%;
+	    right: 10%;
+	    width: 30%;
+		}
+
+		.openbtn {
+			display: block;
+	    position: absolute;
+	    bottom: 10%;
+	    left: 10%;
+	    width: 30%;
+		}
+
+		.relvideo1, .relvideo2, .relvideo3 {
+			width: 100%;
+			display: block;
+		}
+
+		.relvideo2 {
+			display: none;
+		}
+
+		.loading {
+			display : none;
+		}
+
+		.loading canvas {
+			margin: 0 auto;
+    	display: block;
+		}
+	</style>
+    <script src="js/sonic.js"></script>
+</head>
+<body>
+<div class="body">
+	<div class="head">
+		<img src="img/salepoint/second/ZX/backbg.png" alt="" class="backbg">
+		<img src="img/salepoint/second/ZX/backtop.png" alt="" class="backtop">
+	</div>
+	<div class="main">
+<!-- 		<img src="img/salepoint/second/ZX/底图.png" alt="" class="background"> -->
+		<div class="mainbody">
+			<img src="" alt="" class="title">
+			<div class="object">
+				<img src="img/salepoint/second/ZX/亮点说明.png" alt="" class="option">
+				<img src="img/salepoint/second/ZX/down.png" alt="" class="jiantou">
+			</div>
+			<img src="" alt="" class="detail" id="text0">
+			<div class="object">
+				<img src="img/salepoint/second/ZX/操作说明.png" alt="" class="option">
+				<img src="img/salepoint/second/ZX/down.png" alt="" class="jiantou">
+			</div>
+			<img src="" alt="" class="detail" id="text1">
+			<div class="object">
+				<img src="img/salepoint/second/ZX/亮点展示.png" alt="" class="option">
+				<img src="img/salepoint/second/ZX/down.png" alt="" class="jiantou">
+			</div>
+			<div class="loading"></div>
+			<div class="detail rel" id="text2">
+				<video class="relvideo1" src="" loop></video>
+				<video class="relvideo2" src="" loop></video>
+				<img src="" alt="" class="closebtn">
+				<img src="" alt="" class="openbtn">
+			</div>
+			<div class="detail rel" id="text22">
+				<video class="relvideo3" src="" autoplay loop></video>
+			</div>
+			<img src="img/salepoint/second/ZX/bottomtext.png" alt="" class="bottomtext">
+		</div>
+	</div>
+</div>
+<script>
+	window.onload = function() {
+		var hasharr = window.location.hash.substring(1).split('&');
+		var type = decodeURI(hasharr[0]);//ZX
+		var hreftype = decodeURI(hasharr[1]);//基本功能
+		var baseurl = 'img/salepoint/second/' + type + '/';
+		document.getElementsByClassName('title')[0].src = baseurl + hreftype + '.png';
+		document.getElementById('text0').src = baseurl + hreftype + '/' + 'text0.jpg';
+		document.getElementById('text1').src = baseurl + hreftype + '/' + 'text1.jpg';
+		var options = document.getElementsByClassName('object');
+		var circle = new Sonic({
+        width: 50,
+        height: 50,
+        padding: 50,
+
+        strokeColor: '#000',
+
+        pointDistance: .01,
+        stepsPerFrame: 3,
+        trailLength: .7,
+
+        step: 'fader',
+
+        setup: function() {
+            this._.lineWidth = 5;
+        },
+
+        path: [
+            ['arc', 25, 25, 25, 0, 360]
+        ]
+
+    });
+    circle.play();
+    var isloading = true;
+		if(hreftype == '智能启停') {
+			document.getElementsByClassName('relvideo3')[0].src = 'video/' + type + '/' + hreftype + '.mp4';
+		} else {
+			document.getElementsByClassName('relvideo1')[0].src = 'video/' + type + '/' + hreftype + '1.mp4';
+			document.getElementsByClassName('relvideo2')[0].src = 'video/' + type + '/' + hreftype + '2.mp4';
+		}
+		for(var i = 0;i < options.length;i ++) {
+			(function(index) {
+				if(index == 2 && hreftype == '智能启停') {
+					options[index].addEventListener('click', function() {
+						if(document.getElementById('text22').style.display == 'block') {
+							document.getElementById('text22').style.display = 'none';
+							this.childNodes[3].src = baseurl + 'down.png'
+						} else {
+							document.getElementById('text22').style.display = 'block';
+							this.childNodes[3].src = baseurl + 'up.png';
+						}
+					})
+				} else if(index == 2) {
+					document.getElementsByClassName('closebtn')[0].src = 'img/salepoint/second/ZX/' + hreftype + '/close.png';
+					document.getElementsByClassName('openbtn')[0].src = 'img/salepoint/second/ZX/' + hreftype + '/open.png';
+					options[index].addEventListener('click', function() {
+						if(document.getElementById('text' + index).style.display == 'block') {
+							document.getElementById('text' + index).style.display = 'none';
+							this.childNodes[3].src = baseurl + 'down.png'
+						} else {
+							document.getElementById('text' + index).style.display = 'block';
+							this.childNodes[3].src = baseurl + 'up.png';
+						}
+					})
+				} else {
+					options[index].addEventListener('click', function() {
+						if(document.getElementById('text' + index).style.display == 'block') {
+							document.getElementById('text' + index).style.display = 'none';
+							this.childNodes[3].src = baseurl + 'down.png'
+						} else {
+							document.getElementById('text' + index).style.display = 'block';
+							this.childNodes[3].src = baseurl + 'up.png'
+						}
+					})
+				}
+			})(i)
+		}
+		document.getElementsByClassName('backtop')[0].addEventListener('click', function() {
+			window.location.href = 'SalePoint.html#' + type;
+		});
+		document.getElementsByClassName('closebtn')[0].addEventListener('click', function() {
+			document.getElementsByClassName('relvideo2')[0].style.display = 'block';
+			document.getElementsByClassName('relvideo1')[0].style.display = 'none'
+			document.getElementsByClassName('relvideo2')[0].play();
+			document.getElementsByClassName('relvideo1')[0].pause();
+		})
+		document.getElementsByClassName('openbtn')[0].addEventListener('click', function() {
+			document.getElementsByClassName('relvideo1')[0].style.display = 'block';
+			document.getElementsByClassName('relvideo2')[0].style.display = 'none'
+			document.getElementsByClassName('relvideo1')[0].play();
+			document.getElementsByClassName('relvideo2')[0].pause();
+		})
+		window.onhashchange = function() {
+      window.location.reload();
+    }
+	}
+</script>
+<audio controls="controls" autoplay loop hidden="true">
+		<source src="./sound/Aria - to my best.mp4" type="audio/mpeg">
+				Your browser does not support the audio tag.
+	</audio>
+</body>
+</html>

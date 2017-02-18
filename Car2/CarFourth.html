@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <style>
+        * {
+            padding: 0;
+            margin-top:-2px;
+        }
+
+        .head {
+            position: fixed;
+            width: 100%;
+            top:0px;
+            height: 50px;
+            background-image: url("");
+            background-position: 50%;
+            background-size: cover;
+            display: flex;
+            z-index: 100;
+            left: 0;
+        }
+
+        .backto {
+            display: block;
+            min-width: 15%;
+            max-width: 15%;
+        }
+
+        .whitespace {
+            width: 100%;
+        }
+
+        .backtop {
+            display: block;
+            min-width: 12%;
+            max-width: 12%;
+        }
+
+        .backtopright {
+            display: block;
+            min-width: 12%;
+            max-width: 12%;
+        }
+
+        .main {
+            position: relative;
+            width: 100%;
+            top:50px;
+            background-image: url('');
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .titlewords{
+            position: absolute;
+            left: 28%;
+            top: 25%;
+            width: 45%;
+        }
+
+
+        .module2 img {
+            width: 100%;
+        }
+
+        .banner{
+            width: 100%;
+            height:auto;
+        }
+        .backtotop {
+            width: 10%;
+            position: fixed;
+            right: 2%;
+            bottom: 2%;
+            z-index: 110;
+        }
+        .title{
+            width: 100%;
+            height:auto;
+        }
+        .img{
+            width: 100%;
+            height:auto;
+            margin-top:20px;
+        }
+        .mask {
+        	position: fixed;
+			    top: 0;
+			    width: 100%;
+			    height: 100%;
+			    display: none;
+        }
+        .xuanfubg {
+        	width: 100%;
+			    position: absolute;
+			    top: 50%;
+			    transform: translateY(-50%);
+        }
+        .xuanfudetail1 {
+        	position: absolute;
+    			top: 35%;
+        }
+        .xuanfutitle1 {
+        	width: 20%;
+        }
+        .xuanfutext1 {
+        	padding: 10px 20px;
+        	font-size: 14px;
+    			line-height: 18px;
+        }
+        .xuanfudetail2 {
+        	position: absolute;
+    			top: 55%;
+        }
+        .xuanfutitle2 {
+        	width: 20%;
+        }
+        .xuanfutext2 {
+        	padding: 10px 20px;
+        	font-size: 14px;
+    			line-height: 18px;
+        }
+        .jumplink {
+            display: block;
+        }
+        .m1body {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .m1item {
+            width: 45%;
+    margin: 5px 0;
+    margin-left: 7%;
+    margin-right: -8%;
+        }
+
+        .m1itemimg {
+            width: 95%;
+        }
+
+        .mtitle {
+            font-size: 16px;
+    color: rgb(250,242,48);
+    font-weight: bold;
+    line-height: 16px;
+    height: 16px;
+    margin-left: 6%;
+    margin-bottom: 20px;
+        }
+        .m1itemdetail {
+            background-image: url('img/hand/fourth/xuanfu/悬浮框.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 80%;
+        margin-left: 5%;
+        color: red;
+        padding: 1% 5% 2% 5%;
+        display: none;
+        border-radius: 16px;
+        border: 4px solid rgb(255,147,0);
+        }
+
+        .m1itemdetailtitle {
+        padding-top: 20px;
+        width: 60%;
+        }
+
+        .m1itemdetailtext {
+            color: black;
+        font-size: 17px;
+        margin-top: 10px;
+        line-height: 18px;
+        }
+
+        .m1itemtitle {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .miitemtitleimg {
+            width: 100%;
+        }
+
+        .part2 {
+            margin-top: 20px;
+        }
+
+        .sonic {
+            height: 40%!important;
+            width: 40%!important;
+            margin: 0 auto;
+            display: block;
+            margin-top: 20%;
+        }
+
+            .mainbody {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .nav {
+        position: fixed;
+    top: 0;
+    right: -60%;
+    width: 60%;
+    height: 100%;
+    -webkit-overflow-scrolling:touch;
+    overflow: scroll;
+    }
+
+    #navbar {
+    width: 100%;
+    height: 100%;
+    }
+
+    .body {
+        position: relative;
+    }
+
+    .touming {
+        position: absolute;
+    /* z-index: 111; */
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    }
+    </style>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/sonic.js"></script>
+</head>
+<body>
+<div class="mainbody">
+    <div class="body" id="body">
+        <img src="img/hand/fourth/backtopbtn.png" alt="" class="backtotop">
+        <div class="head" id="head">
+            <img class="backto" src="">
+            <div class="whitespace">
+                <img src="" class="titlewords"/>
+            </div>
+            <img src="" alt="" class="backtop">
+            <img src="img/hand/fourth/menu.png" alt="" class="backtopright">
+        </div>
+        <div class="main">
+            <!--<img src="" class="banner"/>-->
+        </div>
+    </div>
+    <img src="img/hand/fourth/ZX/takeblack.png" alt="" class="touming">
+    <div class="nav">
+        <iframe src="" frameborder="0" id="navbar"></iframe>
+    </div>
+</div>
+</body>
+<script>
+    function getmenuimg (src, index, ssrc1, ssrc2, is2) {
+        document.getElementsByClassName('sonic')[0].style.display = 'block';
+        var img = new Image();
+        img.onload=function(){
+            var aa = document.createElement('a');
+            aa.className = "jumplink";
+            this.className = 'title';
+            aa.appendChild(this);
+            document.getElementsByClassName('main')[0].appendChild(aa);
+            getmenuimg(src, index + 1, ssrc1, ssrc2, is2);
+        }; //它在图像完全载入到内存之后调用。
+        img.onerror=function(){
+            loadScript(ssrc1, function() {
+                var namearr = new nameArr();
+                var md = new makemodule();
+                for(var i = 0;i < namearr.length;i ++) {
+                    if(is2) {
+                        md(namearr[i], document.getElementsByClassName('main')[0], 'm3');
+                    } else {
+                        md(namearr[i], document.getElementsByClassName('main')[0], 'm1');
+                    }
+                }
+                gettitleimg(src, 0 ,ssrc2, is2);
+            }, gettitleimg, src, ssrc2, is2)
+        };//它在图像载入失败后调用，图像载入失败不会调用onload事件。
+        img.src = src + 'menu' + index + '.jpg';
+    }
+    function gettitleimg (src, index, ssrc, is2) {
+        var img = new Image();
+        img.onload=function(){
+            this.className = 'img';
+            this.id = 'title' + index;
+            this.addEventListener('click', function() {
+            	document.getElementsByClassName('mask')[0].style.display = 'block';
+            })
+            document.getElementsByClassName('main')[0].appendChild(this);
+            gettitleimg(src, index + 1, ssrc, is2);
+        }; //它在图像完全载入到内存之后调用。
+        img.onerror=function(){
+            loadScript(ssrc, function() {
+                var namearr = new nameArr();
+                var md = new makemodule();
+                for(var i = 0;i < namearr.length;i ++) {
+                    if(is2) {
+                        md(namearr[i], document.getElementsByClassName('main')[0], 'm4');
+                    } else {
+                        md(namearr[i], document.getElementsByClassName('main')[0], 'm2');
+                    }
+                }
+                document.getElementsByClassName('sonic')[0].style.display = 'none';
+                if(window.cartype == 'LL' || window.cartype == 'KMR') {
+                    if(window.doit == true) {
+                        return;
+                    }
+                    getmenuimg('img/hand/fourth/' + window.cartype + '/仪表盘/copy/', 0, "json/基本功能/" + window.cartype + "/仪表盘3.js", "json/基本功能/" + window.cartype + "/仪表盘4.js", true);
+                    window.doit = true;
+                }
+            }, function() {
+                document.getElementsByClassName('sonic')[0].style.display = 'none';
+            })
+        };
+        img.src = src + 'title' + index + '.jpg';
+    }
+    function loadScript(src, callback, cb, ssrc1, ssrc2) {
+        var script = document.createElement('script'),
+            head = document.getElementsByTagName('head')[0];
+        script.type = 'text/javascript';
+        script.charset = 'UTF-8';
+        script.src = src;
+        if (script.addEventListener) {
+            script.addEventListener('load', function () {
+                callback();
+            }, false);
+            script.addEventListener('error', function () {
+                cb(ssrc1, 0, ssrc2);
+            }, false);
+        } else if (script.attachEvent) {
+            script.attachEvent('onreadystatechange', function () {
+                var target = window.event.srcElement;
+                if (target.readyState == 'loaded') {
+                    callback();
+                }
+            });
+        }
+        head.appendChild(script);
+    }
+    window.onload = function() {
+    	var hasharr = window.location.hash.substring(1).split('&');
+		var type = decodeURI(hasharr[0]);//ZX
+		var hreftype = decodeURI(hasharr[1]);//基本功能
+		var bookdetailtype = decodeURI(hasharr[2]);//仪表盘
+        window.cartype = type;
+        document.getElementsByClassName('head')[0].style.backgroundImage = "url('img/hand/fourth/" + type + "/backbg.jpg')";
+		document.getElementsByClassName('titlewords')[0].src = 'img/hand/third/ZX/' + hreftype + '/' + bookdetailtype + '.png';
+        document.getElementsByClassName("backto")[0].setAttribute("src","img/hand/second/"+type+"/back.png");
+        document.getElementsByClassName("backtop")[0].setAttribute("src","img/hand/second/"+type+"/backtop.png");
+		document.getElementsByClassName('main')[0].style.backgroundImage = "url('img/hand/fourth/" + type + "/页面底.jpg')";
+		//document.getElementsByClassName('banner')[0].src = 'img/hand/fourth/' + type + '/banner.jpg';
+        var circle = new Sonic({
+            width: 50,
+            height: 50,
+            padding: 50,
+
+            strokeColor: '#000',
+
+            pointDistance: .01,
+            stepsPerFrame: 3,
+            trailLength: .7,
+
+            step: 'fader',
+
+            setup: function() {
+                this._.lineWidth = 5;
+            },
+
+            path: [
+                ['arc', 25, 25, 25, 0, 360]
+            ]
+
+        });
+        circle.play();
+        document.getElementsByClassName('body')[0].appendChild(circle.canvas);
+		document.getElementsByClassName('backtotop')[0].addEventListener('click', function() {
+	        window.location.href = "#body";
+	    })
+		document.getElementsByClassName('backto')[0].addEventListener('click', function() {
+			window.location.href = 'CarSecond.html#' + type + '&second';
+		})
+		document.getElementsByClassName('backtop')[0].addEventListener('click', function() {
+			window.location.href = 'CarIndex.html#back';
+		})
+		var src = 'img/hand/fourth/' + type + '/' + bookdetailtype + '/';
+        var ssrc1 = "json/" + hreftype + "/" + type + "/" + bookdetailtype + "1.js";
+        var ssrc2 = "json/" + hreftype + "/" + type + "/" + bookdetailtype + "2.js";
+	    getmenuimg(src, 0, ssrc1, ssrc2, false);
+        var isout = false;
+        $(".backtopright").click(function(event) {
+            if(!isout) {
+                $('.touming').show();
+                $('#navbar').attr("src", "navbar.html#" + type + '&m2');
+                $('.body').animate({"left": "-60%"}, 1000);
+                $('.nav').animate({"right": "0"}, 1000);
+                $('.touming').click(function() {
+                    $('.body').animate({"left": "0"}, 1000);
+                    $('.nav').animate({"right": "-60%"}, 1000, function() {
+                        $('.touming').hide();
+                    });
+                })
+                isout = true;
+            } else {
+                $('.body').animate({"left": "0"}, 1000);
+                $('.nav').animate({"right": "-60%"}, 1000, function() {
+                    $('.touming').hide();
+                });
+                isout = false;
+            }
+            event.stopPropagation();
+        })
+        window.onhashchange = function() {
+            if(location.hash !="#body")
+                window.location.reload();
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交车首页</title>
+    <script src="js/touch.js"></script>
+</head>
+<style>
+    .body{
+        width:100%;
+        height:1750px;
+        background-image: url("img/BuyCar/交车首页.jpg");
+        background-size: cover;
+        position: relative;
+        border:solid 1px black;
+    }
+    .car{
+        position: absolute;
+        bottom: 90px;
+        left: 95px;
+    }
+    .man0{
+        position: absolute;
+        bottom: 200px;
+        left: 80px;
+        opacity: 1;
+    }
+    .man1{
+        position: absolute;
+        bottom: 100px;
+        right: 280px;
+        opacity: 0;
+    }
+    .man2{
+        position: absolute;
+        bottom: 800px;
+        left: 10px;
+        opacity: 0;
+    }
+    .man3{
+        position: absolute;
+        top: 250px;
+        right: 260px;
+        opacity: 0;
+    }
+    .man4{
+        position: absolute;
+        bottom: 720px;
+        right: 160px;
+        opacity: 0;
+    }
+    .one{
+        position: absolute;
+        bottom: 200px;
+        right: 20px;
+        height:260px;
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        transition: height 1s;
+        -moz-transition: height 1s;	/* Firefox 4 */
+        -webkit-transition: height 1s;	/* Safari 和 Chrome */
+        -o-transition: height 1s;	/* Opera */
+    }
+    .one:hover{
+        height:300px;
+    }
+    .two{
+        position: absolute;
+        bottom: 880px;
+        left: 120px;
+        height:280px;
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        transition: height 1s;
+        -moz-transition: height 1s;	/* Firefox 4 */
+        -webkit-transition: height 1s;	/* Safari 和 Chrome */
+        -o-transition: height 1s;	/* Opera */
+    }
+    .two:hover{
+        height:320px;
+    }
+    .three{
+        position: absolute;
+        top: 60px;
+        right: 100px;
+        height:190px;
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        transition: height 1s;
+        -moz-transition: height 1s;	/* Firefox 4 */
+        -webkit-transition: height 1s;	/* Safari 和 Chrome */
+        -o-transition: height 1s;	/* Opera */
+    }
+    .three:hover{
+        height:210px;
+    }
+    .four{
+        position: absolute;
+        bottom: 720px;
+        right: 0px;
+        height:290px;
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        transition: height 1s;
+        -moz-transition: height 1s;	/* Firefox 4 */
+        -webkit-transition: height 1s;	/* Safari 和 Chrome */
+        -o-transition: height 1s;	/* Opera */
+    }
+    .four:hover{
+        height:330px;
+    }
+</style>
+<body>
+    <div class="body">
+        <img id="two" class="two" src="img/BuyCar/交付车款.png"/>
+        <img class="man0" id="man0" src="img/BuyCar/人物.png"/>
+        <img class="car" src="img/BuyCar/小车.png"/>
+        <img id="four" class="four" src="img/BuyCar/资料说明.png"/>
+        <img id="three" class="three" src="img/BuyCar/车辆准备.png"/>
+        <img id="one" class="one" src="img/BuyCar/车辆确认.png"/>
+        <img class="man1" id="man1" src="img/BuyCar/人物.png"/>
+        <img class="man2" id="man2" src="img/BuyCar/人物.png"/>
+        <img class="man3" id="man3" src="img/BuyCar/人物.png"/>
+        <img class="man4" id="man4" src="img/BuyCar/人物.png"/>
+    </div>
+</body>
+<script type="text/javascript">
+    var n= 0.1,one=document.getElementById("one"),two=document.getElementById("two"),three=document.getElementById("three"),four=document.getElementById("four");
+    var fun1 = function(){
+        one.style.opacity=n;
+        two.style.opacity=n;
+        three.style.opacity=n;
+        four.style.opacity=n;
+        if(n>=1){
+            clearInterval(timer);
+        }
+        n=n+0.05;
+    }
+    var timer=setInterval(fun1,100);
+
+    var url1="";
+    var url2="";
+    var url3="";
+    var url4="";
+    eventUtil.addHandler(one,'click', function(){
+        var temp=0;
+        var temp1=1;
+        var timer1=setInterval(function(){
+            document.getElementById("man1").style.opacity=temp;
+            temp=temp+0.08;
+            if(temp>=1){
+                clearInterval(timer1);
+            }
+        },100);
+        var timer2=setInterval(function(){
+            document.getElementById("man0").style.opacity=temp1;
+            temp1=temp1-0.1;
+            if(temp1<=0){
+                clearInterval(timer2);
+            }
+        },100);
+        setTimeout(function(){
+            window.location.href=url1;
+        },1500);
+    });
+    eventUtil.addHandler(two,'click', function(){
+        var temp=0;
+        var temp1=1;
+        var timer1=setInterval(function(){
+            document.getElementById("man2").style.opacity=temp;
+            temp=temp+0.08;
+            if(temp>=1){
+                clearInterval(timer1);
+            }
+        },100);
+        var timer2=setInterval(function(){
+            document.getElementById("man0").style.opacity=temp1;
+            temp1=temp1-0.1;
+            if(temp1<=0){
+                clearInterval(timer2);
+            }
+        },100);
+        setTimeout(function(){
+            window.location.href=url2;
+        },1500);
+    });
+    eventUtil.addHandler(three,'click', function(){
+        var temp=0;
+        var temp1=1;
+        var timer1=setInterval(function(){
+            document.getElementById("man3").style.opacity=temp;
+            temp=temp+0.08;
+            if(temp>=1){
+                clearInterval(timer1);
+            }
+        },100);
+        var timer2=setInterval(function(){
+            document.getElementById("man0").style.opacity=temp1;
+            temp1=temp1-0.1;
+            if(temp1<=0){
+                clearInterval(timer2);
+            }
+        },100);
+        setTimeout(function(){
+            window.location.href=url3;
+        },1500);
+    });
+    eventUtil.addHandler(four,'click', function(){
+        var temp=0;
+        var temp1=1;
+        var timer1=setInterval(function(){
+            document.getElementById("man4").style.opacity=temp;
+            temp=temp+0.08;
+            if(temp>=1){
+                clearInterval(timer1);
+            }
+        },100);
+        var timer2=setInterval(function(){
+            document.getElementById("man0").style.opacity=temp1;
+            temp1=temp1-0.1;
+            if(temp1<=0){
+                clearInterval(timer2);
+            }
+        },100);
+        setTimeout(function(){
+            window.location.href=url4;
+        },1500);
+    });
+</script>
+<audio controls="controls" autoplay loop hidden="true">
+  <source src="./sound/[.que] - Drops.mp3" type="audio/mpeg">
+Your browser does not support the audio tag.
+</audio>
+</html>
